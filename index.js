@@ -125,6 +125,34 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
    })
 
    console.log("La suma de grasas saturadas de todos los donuts es " + saturated + "g");
+
+   // 9.- Mostrar el porcentaje medio de cada vitamina
+   console.log();
+   console.log("9.- Mostrar el porcentaje medio de cada vitamina");
+
+   const vitaminesNames = [];
+   const vitaminesPercent = [];
+
+   data.items.item.map(donuts => {
+
+      for (let i = 0; i < donuts.nutrition_facts.nutrition.vitamines.length; i++){
+
+         if (vitaminesPercent[i] === undefined){
+            
+            vitaminesPercent[i] = 0;
+         }
+
+         vitaminesNames[i] = donuts.nutrition_facts.nutrition.vitamines[i].type;
+         vitaminesPercent[i] += parseFloat(donuts.nutrition_facts.nutrition.vitamines[i].percent);
+      }
+   })
+
+   for (let i = 0; i < vitaminesPercent.length; i++){
+
+      const vitaminesPercentMedia = vitaminesPercent[i] / vitaminesPercent.length;
+
+      console.log("La media de " + vitaminesNames[i] + " es " + vitaminesPercentMedia + "%");
+   }
 })
 .catch(function (error){
 
