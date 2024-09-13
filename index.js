@@ -169,6 +169,22 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
 
       console.log();
    })
+
+   // 11.- Mostrar cada donut con sus posibles extras topping
+   console.log();
+   console.log("11.- Mostrar cada donut con sus posibles extras topping");
+
+   data.items.item.map(donuts => {
+      
+      console.log(donuts.name + " tiene estos topping extras:");
+
+      for (let i = 0; i < donuts.topping.length; i++){
+
+         console.log(donuts.topping[i].type);
+      }
+
+      console.log();
+   })
 })
 .catch(function (error){
 
