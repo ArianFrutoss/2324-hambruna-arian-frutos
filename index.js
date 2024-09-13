@@ -72,6 +72,12 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
 
       console.log("El donut " + donuts.name + " tiene " + donuts.nutrition_facts.nutrition.calories + " calorias");
    })
+
+   // 6.- Mostrar todos los donuts y sus carbohidratos
+   data.items.item.map(donuts => {
+
+      console.log("El donut " + donuts.name + " tiene " + donuts.nutrition_facts.nutrition.carbohydrate.daily_value + " carbohidratos");
+   })
 })
 .catch(function (error){
 
