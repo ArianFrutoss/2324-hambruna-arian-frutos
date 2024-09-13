@@ -4,16 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/ArianFrutoss/2324-hambruna-arian-frutos.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs"
   },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ArianFrutoss/2324-hambruna-arian-frutos/issues"
-  },
-  "homepage": "https://github.com/ArianFrutoss/2324-hambruna-arian-frutos#readme"
+  "license": "ISC"
 }
