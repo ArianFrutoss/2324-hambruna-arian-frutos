@@ -95,6 +95,23 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
 
       console.log("El donut " + donuts.name + " tiene " + donuts.nutrition_facts.nutrition.carbohydrate.daily_value + " carbohidratos");
    })
+
+   // 7.- Mostrar la media de calorias de todos los donuts
+   console.log();
+   console.log("7.- Mostrar la media de calorias de todos los donuts");
+
+   let calories = 0;
+   let cont = 0;
+   
+   data.items.item.map(donuts => {
+
+      calories += donuts.nutrition_facts.nutrition.calories;
+      cont++;
+   })
+
+   const calorieMedia = calories / cont;
+
+   console.log("La media de calorias de todos los donuts es " + calorieMedia);
 })
 .catch(function (error){
 
