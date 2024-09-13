@@ -185,6 +185,22 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
 
       console.log();
    })
+
+   // 12.- Mostrar cuantos donuts de cada tipo podemos comprar y cuanto dinero nos sobra
+   console.log();
+   console.log("12.- Mostrar cuantos donuts de cada tipo podemos comprar y cuanto dinero nos sobra");
+
+   let money = 4;
+
+   data.items.item.map(donuts => {
+
+      const donutsQuantity = Math.floor(money / donuts.ppu);
+      const moneyRest = money % donuts.ppu;
+
+      console.log("Podemos comprar " + donutsQuantity + " " + donuts.name + " y nos sobran " + moneyRest.toFixed(2) + " de dinero");
+      
+   })
+
 })
 .catch(function (error){
 
