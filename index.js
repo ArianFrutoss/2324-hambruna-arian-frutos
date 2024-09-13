@@ -153,6 +153,22 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
 
       console.log("La media de " + vitaminesNames[i] + " es " + vitaminesPercentMedia + "%");
    }
+
+   // 10.- Mostrar cada donut con sus posibles masas, batter
+   console.log();
+   console.log("10.- Mostrar cada donut con sus posibles masas, batter");
+
+   data.items.item.map(donuts => {
+      
+      console.log(donuts.name + " tiene estas masas:");
+
+      for (let i = 0; i < donuts.batters.batter.length; i++){
+
+         console.log(donuts.batters.batter[i].type);
+      }
+
+      console.log();
+   })
 })
 .catch(function (error){
 
