@@ -5,10 +5,16 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
    // 1.- Mostrar donut con mas azucar
    const donutWithMoreSugar = data.items.item.reduce((previous, current) => {
       
-      return current.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars > previous.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars ? current : previous;
+      return parseFloat(current.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars) > parseFloat(previous.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars) ? current : previous;
    })
 
-   console.log("El donut con mas azucar es " + donutWithMoreSugar.name);
+   const donutsWithMoreSugar = data.items.item.filter(donut => 
+
+      parseFloat(donut.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars) === parseFloat(donutWithMoreSugar.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars)
+   )
+
+   console.log("Los donuts con mas azucar son: ");
+   printDonuts(donutsWithMoreSugar);
    
    // 2.- Mostrar donut con mas hierro
    const donutWithMoreIron = data.items.item.reduce((previous, current) => {
@@ -22,15 +28,44 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
       }
    })
 
-   console.log("El donut con mas hierro es " + donutWithMoreIron.name);
-
-   // 3.- Mostrar donut con mas hierro
+   console.log("Los donuts con mas hierro son: ");
+   console.log(donutWithMoreIron.name);
+   
+   // 3.- Mostrar donut con mas proteina
    const donutWithMoreProtein = data.items.item.reduce((previous, current) => {
       
-      return current.nutrition_facts.nutrition.proteine > previous.nutrition_facts.nutrition.proteine ? current : previous;
+      return parseFloat(current.nutrition_facts.nutrition.proteine) > parseFloat(previous.nutrition_facts.nutrition.proteine) ? current : previous;
    })
 
-   console.log("El donut con mas proteina es " + donutWithMoreProtein.name);
+   const donutsWithMoreProtein = data.items.item.filter(donut => 
+
+      parseFloat(donut.nutrition_facts.nutrition.proteine) === parseFloat(donutWithMoreProtein.nutrition_facts.nutrition.proteine)
+   )
+   
+   console.log("Los donuts con mas proteinas son: ");
+   printDonuts(donutsWithMoreProtein);
+
+   // 4.- Mostrar donut con menos fibra
+   const donutWithLessFibre = data.items.item.reduce((previous, current) => {
+      
+      return parseFloat(current.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre) < parseFloat(previous.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre) ? current : previous;
+   })
+
+   const donutsWithLessFibre = data.items.item.filter(donut => 
+
+      parseFloat(donut.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre) === parseFloat(donutWithLessFibre.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre)
+   )
+   
+   console.log("Los donuts con menos fibra son: ");
+   printDonuts(donutsWithLessFibre);
+   
+   function printDonuts(donuts){
+
+      for (let i = 0; i < donuts.length; i++){
+
+         console.log(donuts[i].name);
+      }
+   }
 })
 .catch(function (error){
 
