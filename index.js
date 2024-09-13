@@ -23,6 +23,14 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
    })
 
    console.log("El donut con mas hierro es " + donutWithMoreIron.name);
+
+   // 3.- Mostrar donut con mas hierro
+   const donutWithMoreProtein = data.items.item.reduce((previous, current) => {
+      
+      return current.nutrition_facts.nutrition.proteine > previous.nutrition_facts.nutrition.proteine ? current : previous;
+   })
+
+   console.log("El donut con mas proteina es " + donutWithMoreProtein.name);
 })
 .catch(function (error){
 
