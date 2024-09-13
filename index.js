@@ -112,6 +112,19 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
    const calorieMedia = calories / cont;
 
    console.log("La media de calorias de todos los donuts es " + calorieMedia);
+
+   // 8.- Mostrar la suma de grasas saturadas de todos los donuts
+   console.log();
+   console.log("8.- Mostrar la suma de grasas saturadas de todos los donuts");
+
+   let saturated = 0;
+   
+   data.items.item.map(donuts => {
+
+      saturated += parseFloat(donuts.nutrition_facts.nutrition.fat.fat_type.saturated);
+   })
+
+   console.log("La suma de grasas saturadas de todos los donuts es " + saturated + "g");
 })
 .catch(function (error){
 
