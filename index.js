@@ -58,7 +58,7 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
    
    console.log("Los donuts con menos fibra son: ");
    printDonuts(donutsWithLessFibre);
-   
+
    function printDonuts(donuts){
 
       for (let i = 0; i < donuts.length; i++){
@@ -66,6 +66,12 @@ fetch(`https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
          console.log(donuts[i].name);
       }
    }
+   
+   // 5.- Mostrar todos los donuts y sus calorias
+   data.items.item.map(donuts => {
+
+      console.log("El donut " + donuts.name + " tiene " + donuts.nutrition_facts.nutrition.calories + " calorias");
+   })
 })
 .catch(function (error){
 
